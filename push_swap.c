@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-
+/*Passes sequence to sorting functions depending on length of sequence*/
 static void     sort(int *a, int *b, int *n)
 {
     if (n[1] > 6)
@@ -21,6 +21,8 @@ static void     sort(int *a, int *b, int *n)
         asort(a, b, n);
 }
 
+/*-intcheck converts arguments of numbers delimited by spaces into
+  a integer array*/
 static void     intcheck(int ac, char **av, int *n)
 {
     int     x[3];
@@ -49,6 +51,12 @@ static void     intcheck(int ac, char **av, int *n)
     }
     sort(a, b, n);
 }
+
+/*The main takes in str arguments
+Precautions were made to make sure:
+    -words(numbers) deliminted by spaces count despite the sequence being in a 
+     single argument or within multiple arguments
+Subsequent number were passed to intcheck*/
 
 int             main(int ac, char **av)
 {
