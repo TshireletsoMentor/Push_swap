@@ -45,5 +45,31 @@ void        place2(int *n, int *a, char **av)
     int     i;
 
     i = 0;
-    while ()
+    while (i < n[0])
+    {
+        if (a[n[2]] = ft_atoi(av[i]) || ft_strequ(av[i], "0"))
+        {
+            n[2]++;
+            i++;
+        }
+        else
+        {
+            ft_putendl("Error");
+            exit(0);
+        }
+    }
+}
+
+/*-calls place2 function and dub_check thereafter*/
+void        erpl2(int *a, int *x, char **tmp)
+{
+    place2(x, a, tmp);
+    dub_check(x[1], a);
+}
+
+/*-calls place1 function and dub_check thereafter*/
+void        erpl1(int *a, int *x, char **tmp)
+{
+    place(x, a, tmp);
+    dub_check(x[1], a);
 }

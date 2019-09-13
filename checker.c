@@ -39,7 +39,7 @@ static void     com_to_op(char *line, int *list, int *b, int *n)
         if (line[0] == 's')
             s(list, b, line, n);
         else if (line[0] == 'p')
-            n[0] = p(list, b, line, n);
+            n[0] = p1(list, b, line, n);
         else if (line[0] == 'r' && line[1] == 'r' && line[2] != '\0')
             rr(list, b, line, n);
         else
