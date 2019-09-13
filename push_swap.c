@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*Passes sequence to sorting functions depending on length of sequence*/
-static void     sort(int *a, int *b, int *n)
+static void     push_swap(int *a, int *b, int *n)
 {
     if (n[1] > 6)
         csort(a, b, n);
@@ -49,7 +49,7 @@ static void     intcheck(int ac, char **av, int *n)
         }
         i[0]++;
     }
-    sort(a, b, n);
+    push_swap(a, b, n);
 }
 
 /*The main takes in str arguments
