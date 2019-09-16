@@ -11,27 +11,27 @@
 /* ************************************************************************** */
 
 /*sorts sequence x for 3 < x < 7 numbers*/
-/*moves the smallest numbers into stack b, so that the smallest number is the 
+/*determines if it will take less movies to moves the smallest numbers into stack b, so that the smallest number is the 
   last number in b*/
-int             lolo(int *a, int n, int mid, int *x)
+int             lolo(int *a, int n, int m, int *x)
 {
     while (x[1] - x[0] != 1 && x[1] - x[0] != 0)
     {
         if (x[1] - x[0] != 1)
-            mid = mid + (x[1] - x[0]);
+            m = m + (x[1] - x[0]);
         x[2] = 0;
         x[0] = 0;
         x[1] = 0;
         while (x[2] < n)
         {
-            if (a[x[2]] < mid)
+            if (a[x[2]] < m)
                 x[0]++;
             else
                 x[1]++;
             x[2]++;
         }
     }
-    return (mid);
+    return (m);
 }
 
 static void     lole(int *a, int *b, int *n, int i)
@@ -47,7 +47,7 @@ static void     lole(int *a, int *b, int *n, int i)
     }
     else
     {
-        while (1 != (n[1] - n[0]))
+        while (i != (n[1] - n[0]))
         {
             rr(a, b, "rra", n);
             ft_putendl("rra");
@@ -64,36 +64,38 @@ static void     pa(int *a, int *b, int *n)
     ft_putendl("pa");
 }
 
-/*identifies the mean to determine how many possing from either end numbers are*/
+/*identifies the mean value to determine how many positions from either end numbers are to 
+determine an actual middle value within the given sequence*/
 int             mid(int *a, int n)
 {
-    int mid;
+    int m;
     int x[3];
 
     x[2] = 0;
-    mid = 0;
+    m = 0;
     x[0] = 0;
     x[1] = 0;
     while (x[2] < n)
     {
-        mid = mid + a[x[2]];
+        m = m + a[x[2]];
         x[2]++;
     }
-    mid = mid / x[2];
+    m = m / x[2];
     x[2] = 0;
     while (x[2] < n)
     {
-        if (a[x[2]] < mid)
+        if (a[x[2]] < m)
             x[0]++;
         else
             x[1]++;
         x[2]++;
     }
-    mid = lolo(a, n, mid, x);
-    return (mid);
+    m = lolo(a, n, m, x);
+    return (m);
 }
 
-/*identifies the particular 3 number permutation and passes to suitable operation*/
+/*identifies the middle(mid) value, then if the particular index in less than mid
+it is pushed to b.  */
 void            bsort(int *a, int *b, int *n)
 {
     int m;
@@ -116,8 +118,8 @@ void            bsort(int *a, int *b, int *n)
             i++;
         }
         asort(a, b, n);
-        revsort(a, b, n);
-        while (n[0] != 0)
+        asort_b(a, b, n);
+        while (n[0] != 0);
             pa(a, b, n);
     }
 }
