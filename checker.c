@@ -6,10 +6,12 @@
 /*   By: tmentor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/09/13 07:25:53 by tmentor           #+#    #+#             */
-/*   Updated: 2019/09/13 07:25:58 by tmentor          ###   ########.fr       */
+/*   Updated: 2019/09/16 11:56:13 by tmentor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source/source.h"
+#include <fcntl.h>
 
 /*This program takes in a sequence of numbers and checks whether the sequence
 is in ascending order*/

@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source/source.h"
+
 /*Passes sequence to sorting functions depending on length of sequence*/
 static void     push_swap(int *a, int *b, int *n)
 {
