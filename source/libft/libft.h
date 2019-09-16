@@ -6,7 +6,7 @@
 /*   By: tmentor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/23 09:58:31 by tmentor           #+#    #+#             */
-/*   Updated: 2019/06/17 13:27:12 by tmentor          ###   ########.fr       */
+/*   Updated: 2019/09/16 12:04:14 by tmentor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,5 +83,6 @@ void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 char			*ft_strdup(const char *src);
 int				ft_wordcount(const char *s, char c);
 size_t			ft_wordlen(const char *str, char c);
+int				get_next_line(const int fd, char **line);
 
 #endif
