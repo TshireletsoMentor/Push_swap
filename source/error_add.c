@@ -38,9 +38,10 @@ void        dub_check(int ac, int *num)
 
 /*-converts str number to interget
   -prints out error if input cannot be a valid integer*/
-void        place1(int *x, int *a, char **av)
+void        place1(int *x, int *a, char **tmp)
 {
-    if ((a[x[1] - 1] = ft_atoi(av[x[2]])) || ft_strequ(av[x[2]], "0")){
+    if ((a[x[1] - 1] = ft_atoi(tmp[x[2]])) || ft_strequ(tmp[x[2]], "0"))
+    {
     }
     else
     {
@@ -52,14 +53,14 @@ void        place1(int *x, int *a, char **av)
 
 /*-converts str number to interget
   -prints out error if input cannot be a valid integer*/
-void        place2(int *n, int *a, char **av)
+void        place2(int *n, int *a, char **tmp)
 {
     int     i;
 
     i = 0;
     while (i < n[0])
     {
-        if (a[n[2]] = ft_atoi(av[i]) || ft_strequ(av[i], "0"))
+        if (a[n[2]] = ft_atoi(tmp[i]) || ft_strequ(tmp[i], "0"))
         {
             n[2]++;
             i++;
