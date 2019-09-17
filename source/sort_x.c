@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source.h"
+
 static void     minmax(int *i, int *a, int *min, int *max)
 {
     while (i[1] < i[0])
@@ -73,7 +75,7 @@ static void     findx(int *min, int *max, int *x, int *i)
     min[1] = min[0];
 }
 
-static void     to_ra_or_rra1(int *i, int *a, int *b, int *n)
+static void     to_ra_or_rra(int *i, int *a, int *b, int *n)
 {
     int loop;
 
@@ -111,7 +113,7 @@ void            csort(int *a, int *b, int *n)
             i[1] = (n[1] - n[0]) - 1;
             min[1] = min[1] + x[0];
             ex(min, max, i);
-            to_ra_or_rra1(i, a, b, n);
+            to_ra_or_rra(i, a, b, n);
             if (n[0] == n[1] - 3)
                 min[1] = max[0] + x[0];
         }

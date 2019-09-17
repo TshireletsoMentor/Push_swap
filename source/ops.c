@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source.h"
 
 /*Contains all the functions(rules) used to alter the order of the sequence*/
 

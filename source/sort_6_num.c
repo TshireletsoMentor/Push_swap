@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source.h"
+
 /*sorts sequence x for 3 < x < 7 numbers*/
 /*determines if it will take less movies to moves the smallest numbers into stack b, so that the smallest number is the 
   last number in b*/

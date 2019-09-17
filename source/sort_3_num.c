@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source.h"
+
 /*sorts all the permutations for 3 numbers in a*/
 
 /*implements rra and rrb operations*/

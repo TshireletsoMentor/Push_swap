@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "source.h"
 
 /*dub_check checks for doubles in the sequence*/
 void        dub_check(int ac, int *num)
