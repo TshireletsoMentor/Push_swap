@@ -1,40 +1,34 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: tmentor <marvin@42.fr>                     +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/09/13 07:25:25 by tmentor           #+#    #+#              #
-#    Updated: 2019/09/13 07:25:30 by tmentor          ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
+NAME1		= checker
 
+NAME2		= push_swap
 
-NAME	= push.a
+FILES		= source/push.a \
+				source/libft/libft.a
 
-FILES	= 
+checker		= gcc
 
+FLAGS		= -Wall -Wextra -Werror
 
-CC		= gcc
+all:	pre $(NAME1) $(NAME2)
 
-FLAGS	= -Wall -Wextra -Werror
+pre:	
+		@cd source && make
+		@cd source && make clean
+		@cd source/libft && make
+		@cd source/libft && make clean
 
-LIB		= push.h
+$(NAME1):
+		@$(CC) $(FLAGS) $(FILES) checker.c -o $(NAME1)
 
-OBJ		= $(FILES:%.c=%.o)
-
-all:	  $(NAME)
-
-$(NAME):
-		@$(CC) $(FLAGS) -c $(FILES) -I (LIB)
-		@ar rc $(NAME) $(OBJ)
-		@ranlib $(NAME)
+$(NAME2):
+		@$(CC) $(FLAGS) $(FILES) push_swap.c -o $(NAME2)
 
 clean:
-		@rm -f $(OBJ)
+		@cd source && make fclean
+		@cd source/libft && make fclean
 
 fclean: clean
-		@rm -f $(NAME)
+		@rm -f $(NAME1)
+		@rm -f $(NAME2)
 
 re:		fclean all
