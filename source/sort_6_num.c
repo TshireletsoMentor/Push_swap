@@ -10,20 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source.h"
+#include "push_swap.h/push_swap.h"
 
 /*sorts sequence x for 3 < x < 7 numbers*/
 /*determines if it will take less movies to moves the smallest numbers into stack b, so that the smallest number is the 
   last number in b*/
-int             lolo(int *a, int n, int m, int *x)
+static int             lolo(int *a, int n, int m, int *x)
 {
     while (x[1] - x[0] != 1 && x[1] - x[0] != 0)
     {
         if (x[1] - x[0] != 1)
-            m = m + (x[1] - x[0]);
-        x[2] = 0;
+            m = m + (x[1] - x[0]);            
         x[0] = 0;
         x[1] = 0;
+        x[2] = 0;
         while (x[2] < n)
         {
             if (a[x[2]] < m)
@@ -36,6 +36,8 @@ int             lolo(int *a, int n, int m, int *x)
     return (m);
 }
 
+/*determines if it will take less movies to moves the smallest numbers into stack b, so that the smallest number is the 
+  last number in b*/
 static void     lole(int *a, int *b, int *n, int i)
 {
     if (i < (n[1] - n[0]) / 2)
@@ -60,9 +62,9 @@ static void     lole(int *a, int *b, int *n, int i)
 }
 
 /*pushes all the sorted values in b to a (final step!!!!)*/
-static void     pa(int *a, int *b, int *n)
+static void     fstep(int *a, int *b, int *n)
 {
-    p(a, b, "pa", n);
+    pa(a, b, "pa", n);
     ft_putendl("pa");
 }
 
@@ -73,10 +75,10 @@ int             mid(int *a, int n)
     int m;
     int x[3];
 
-    x[2] = 0;
     m = 0;
     x[0] = 0;
     x[1] = 0;
+    x[2] = 0;
     while (x[2] < n)
     {
         m = m + a[x[2]];
@@ -100,8 +102,8 @@ int             mid(int *a, int n)
 it is pushed to b.  */
 void            bsort(int *a, int *b, int *n)
 {
-    int m;
     int i;
+    int m;
 
     if (!checka(a, n[1]))
     {
@@ -111,7 +113,7 @@ void            bsort(int *a, int *b, int *n)
         {
             if (a[0] < m)
             {
-                p(a, b, "pb", n);
+                pa(a, b, "pb", n);
                 ft_putendl("pb");
                 i = 0;
             }
@@ -121,7 +123,7 @@ void            bsort(int *a, int *b, int *n)
         }
         asort(a, b, n);
         asort_b(a, b, n);
-        while (n[0] != 0);
-            pa(a, b, n);
+        while (n[0] != 0)
+            fstep(a, b, n);
     }
 }

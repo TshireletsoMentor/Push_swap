@@ -1,16 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   libft3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tmentor <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/11 09:42:29 by tmentor           #+#    #+#             */
-/*   Updated: 2019/09/16 12:03:15 by tmentor          ###   ########.fr       */
+/*   Created: 2019/09/13 07:26:22 by tmentor           #+#    #+#             */
+/*   Updated: 2019/09/13 07:26:26 by tmentor          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h/push_swap.h"
+
+int		ft_wordcount(const char *s, char c)
+{
+	size_t n;
+	size_t i;
+
+	n = 0;
+	i = 0;
+	while (s[n])
+	{
+		while (s[n] == c && s[n] != '\0')
+			n++;
+		if (s[n] != c && s[n] != '\0')
+			i++;
+		while (s[n] != c && s[n] != '\0')
+			n++;
+	}
+	return ((int)i);
+}
+
+void		ft_putendl(char const *str)
+{
+	int i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i] != '\0')
+		{
+			write(1, &str[i], 1);
+			i++;
+		}
+	}
+	write(1, "\n", 1);
+}
 
 static char		*reader(char *store, char **line)
 {

@@ -10,23 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source.h"
+#include "push_swap.h/push_swap.h"
 
 /*dub_check checks for doubles in the sequence*/
 void        dub_check(int ac, int *num)
 {
-    int     cntr;
     int     i;
+    int     j;
 
-    cntr = 0;
+    j = 0;
     if (ac > 1)
     {
-        while(++cntr < ac)
+        while(++j < ac)
         {
             i = 0;
-            while (i < cntr)
+            while (i < j)
             {
-                if (num[i] == num[cntr])
+                if (num[i] == num[j])
                 {
                     ft_putendl("Error");
                     exit(0);
@@ -37,11 +37,12 @@ void        dub_check(int ac, int *num)
     }
 }
 
-/*-converts str number to interget
+/*-converts str number to interget from av with single number
   -prints out error if input cannot be a valid integer*/
-void        place1(int *x, int *a, char **tmp)
+void        place1(int *n, int *a, char **av)
 {
-    if ((a[x[1] - 1] = ft_atoi(tmp[x[2]])) || ft_strequ(tmp[x[2]], "0"))
+    if ((a[n[1] - 1] = ft_atoi(av[n[2]]))
+            || ft_strequ(av[n[2]], "0"))
     {
     }
     else
@@ -49,19 +50,19 @@ void        place1(int *x, int *a, char **tmp)
         ft_putendl("Error");
         exit(0);
     }
-    
 }
 
-/*-converts str number to interget
+/*-converts str number to interget from av with multiple numbers
   -prints out error if input cannot be a valid integer*/
-void        place2(int *n, int *a, char **tmp)
+void        place2(int *n, int *a, char **av)
 {
     int     i;
 
     i = 0;
     while (i < n[0])
     {
-        if (a[n[2]] = ft_atoi(tmp[i]) || ft_strequ(tmp[i], "0"))
+        if ((a[n[2]] = ft_atoi(av[i])) 
+                || ft_strequ(av[i], "0"))
         {
             n[2]++;
             i++;
@@ -84,6 +85,6 @@ void        erpl2(int *a, int *x, char **tmp)
 /*-calls place1 function and dub_check thereafter*/
 void        erpl1(int *a, int *x, char **tmp)
 {
-    place(x, a, tmp);
+    place1(x, a, tmp);
     dub_check(x[1], a);
 }

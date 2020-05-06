@@ -1,31 +1,47 @@
-NAME1		= checker
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tmentor <marvin@42.fr>                     +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/09/13 07:25:25 by tmentor           #+#    #+#              #
+#    Updated: 2019/09/13 07:25:30 by tmentor          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
-NAME2		= push_swap
 
-FILES		= source/push.a \
-				source/libft/libft.a
+NAME1	= checker
 
-checker		= gcc
+NAME2	= push_swap
 
-FLAGS		= -Wall -Wextra -Werror
+FILES	=	source/checkab.c \
+			source/error_add.c \
+			source/libft1.c \
+			source/libft2.c \
+			source/libft3.c \
+			source/libft4.c \
+			source/num_add.c \
+			source/ops.c \
+			source/sort_3_num.c \
+			source/sort_6_num.c \
+			source/sort_x_num.c 
 
-all:	pre $(NAME1) $(NAME2)
+CC		= gcc
 
-pre:	
-		@cd source && make
-		@cd source && make clean
-		@cd source/libft && make
-		@cd source/libft && make clean
+FLAGS	= -Wall -Wextra -Werror
+
+all:	$(NAME1) $(name2)
+
 
 $(NAME1):
-		@$(CC) $(FLAGS) $(FILES) checker.c -o $(NAME1)
+		@$(CC) $(FLAGS) checker.c $(FILES)  -o $(NAME1)
 
 $(NAME2):
-		@$(CC) $(FLAGS) $(FILES) push_swap.c -o $(NAME2)
+		@$(CC) $(FLAGS) push_swap.c $(FILE)  -o $(NAME2)
 
 clean:
 		@cd source && make fclean
-		@cd source/libft && make fclean
 
 fclean: clean
 		@rm -f $(NAME1)

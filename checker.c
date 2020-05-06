@@ -10,21 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source/source.h"
-#include <fcntl.h>
+#include "source/push_swap.h/push_swap.h"
+#include <stdio.h>
 
 /*This program takes in a sequence of numbers and checks whether the sequence
 is in ascending order*/
 
+// void        printa(int *a, int n)
+// {
+//     printf("Stack A:");
+//     for(int i = 0; i <= n; i++){
+//         printf(" %d ", a[i]);
+//     }
+// }
+
 /*-checks if commands resulted in ascening order sequence*/
-static void     checker(int *a, int b_count, int count)
+static void     checker(int *a, int b_count, int a_count)
 {
     int     i;
 
     i = 0;
-    if (b_count = 0)
+
+    // printa(a, a_count);
+    if (b_count == 0)
     {
-        while (i < count)
+        while (i < a_count)
         {
             if (a[i] < a[i + 1])
                 i++;
@@ -34,31 +44,35 @@ static void     checker(int *a, int b_count, int count)
                 exit(0);
             }
         }
-        if (i == count)
+        if (i == a_count)
+        {
             ft_putendl("OK");
+        }
     }
     else
+    {
         ft_putendl("KO");
+    }
 }
 /*-checks if commands are valid
   -executes commands on sequence by operations.c*/
-static void     com_to_op(char *line, int *list, int *b, int *n)
+static void     com_to_op(char *line, int *a, int *b, int *n)
 {
     if (ft_strequ(line, "sa") || ft_strequ(line, "sb")
-    || ft_strequ(line, "ss") || ft_strequ(line, "pa")
+        || ft_strequ(line, "ss") || ft_strequ(line, "pa")
         || ft_strequ(line, "pb") || ft_strequ(line, "ra")
         || ft_strequ(line, "rb") || ft_strequ(line, "rr")
         || ft_strequ(line, "rra") || ft_strequ(line, "rrb")
         || ft_strequ(line, "rrr"))
     {
         if (line[0] == 's')
-            s(list, b, line, n);
+            s(a, b, line, n);
         else if (line[0] == 'p')
-            n[0] = p1(list, b, line, n);
+            n[0] = pa(a, b, line, n);
         else if (line[0] == 'r' && line[1] == 'r' && line[2] != '\0')
-            rr(list, b, line, n);
+            rr(a, b, line, n);
         else
-            r(list, b, line, n);
+            r(a, b, line, n);
         free(line);
     }
     else
@@ -69,23 +83,23 @@ static void     com_to_op(char *line, int *list, int *b, int *n)
 }
 
 /*-Reads commands from stdin*/
-static void     com_read(int *a, int *b, int *cntr)
+static void     com_read(int *a, int *b, int *n)
 {
     char    *line;
 
     while (get_next_line(0, &line) == 1)
-        com_to_op(line, a, b, cntr);
-    checker(a, cntr[0], cntr[1] - 1);
+        com_to_op(line, a, b, n);
+    checker(a, n[0], n[1] - 1);
 }
 
 /*-intcheck converts arguments of numbers delimited by spaces into
   a integer array*/
 static void     intcheck(int ac, char **av, int *n)
 {
-    int     x[3];
-    int     i[3];
     int     a[n[1]];
     int     b[n[1]];
+    int     x[3];
+    int     i[3];
 
     i[0] = 1;
     i[1] = 0;
@@ -110,8 +124,8 @@ static void     intcheck(int ac, char **av, int *n)
 }
 
 /*The main takes in str arguments
-Precautions were made to make sure:
-    -words(numbers) deliminted by spaces count despite the sequence being in a 
+Makes sure:
+    -words "numbers" deliminted by spaces count despite the sequence being in a 
      single argument or within multiple arguments
 Subsequent number were passed to intcheck*/
 
@@ -142,5 +156,4 @@ int             main(int ac, char **av)
             exit(0);
         intcheck(ac, av, num);
     }
-    return (0);
 }

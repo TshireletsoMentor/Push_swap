@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source.h"
+#include "push_swap.h/push_swap.h"
+#include <stdio.h>
 
 /*Contains all the functions(rules) used to alter the order of the sequence*/
-
 /*function for "sa", "sb" and "ss"*/
 void        s(int *a, int *b, char *str, int *n)
 {
@@ -34,53 +34,53 @@ void        s(int *a, int *b, char *str, int *n)
 }
 
 /*function for "pb"*/
-int         p2(int *a, int *b, int *n)
+int         pb(int *a, int *b, int *n)
 {
     int     i;
-    int     index;
+    int     j;
 
     i = n[0];
-    index = 0;
+    j = 0;
     while (i >= 0)
     {
         b[i + 1] = b[i];
         i--;
     }
     b[0] = a[0];
-    while (index < n[1] - n[0])
+    while (j < n[1] - n[0])
     {
-        a[index] = a[index + 1];
-        index++;
+        a[j] = a[j + 1];
+        j++;
     }
     n[0]++;
     return (n[0]);
 }
 
 /*function for "pa", passes to "pb"*/
-int         p1(int *a, int *b, char *str, int *n)
+int         pa(int *a, int *b, char *str, int *n)
 {
     int     i;
-    int     index;
+    int     j;
 
     if (ft_strequ(str, "pa") && n[0] != 0)
     {
         i = n[1] - n[0];
-        index = 0;
+        j = 0;
         while(i >= 0)
         {
             a[i + 1] = a[i];
             i--;
         }
         a[0] = b[0];
-        while (index < n[0] - 1)
+        while (j < n[0] - 1)
         {
-            b[index] = b[index + 1];
-            index++;
+            b[j] = b[j + 1];
+            j++;
         }
         n[0]--;
     }
     if (ft_strequ(str, "pb") && n[1] - n[0] != 0)
-        n[0] = p2(a, b, n);
+        n[0] = pb(a, b, n);
     return (n[0]);
 }
 
@@ -91,7 +91,7 @@ void        rr(int *a, int *b, char *str, int *n)
     int     i;
     int     tmp;
 
-    if ((ft_strequ(str, "rra") || ft_strequ(str, "rrb")) && n[1] - n[0] != 0)
+    if ((ft_strequ(str, "rra") || ft_strequ(str, "rrr")) && n[1] - n[0] != 0)
     {
         i = n[1] - n[0] - 1;
         tmp = a[i];
@@ -102,9 +102,9 @@ void        rr(int *a, int *b, char *str, int *n)
         }
         a[0] = tmp;
     }
-    if ((ft_strequ(str, "rra") || ft_strequ(str, "rrb")) && n[0] != 0)
+    if ((ft_strequ(str, "rrb") || ft_strequ(str, "rrr")) && n[0] != 0)
     {
-        i = n[1] - n[0] - 1;
+        i = n[0] - 1;
         tmp = b[i];
         while (i > 0)
         {

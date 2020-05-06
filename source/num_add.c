@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source.h"
+#include "push_swap.h/push_swap.h"
 
 static void ra_or_rra2(int *a, int *b, int *n, int *i)
 {
@@ -37,7 +37,7 @@ static void ra_or_rra2(int *a, int *b, int *n, int *i)
 
 void        pb_asort(int *a, int *b, int *n)
 {
-    p(a, b, "pb", n);
+    pa(a, b, "pb", n);
     ft_putendl("pb");
     if (n[1] - n[0] == 3)
         asort(a, b, n);
@@ -63,7 +63,7 @@ void        passb(int *a, int *b, int *n)
             i[0]++;
         }
         ra_or_rra2(a, b, n, i);
-        p(a, b, "pa", n);
+        pa(a, b, "pa", n);
         ft_putendl("pa");
     }
 }
@@ -80,7 +80,7 @@ void        add_erpl2(char *av, int *a, int *x)
     char    **tmp;
     int     i;
 
-    i = 0;
+    i = 0; 
     tmp = ft_strsplit(av, ' ');
     erpl2(a, x, tmp);
     while (i < ft_wordcount(av, ' '))

@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source/source.h"
+#include "source/push_swap.h/push_swap.h"
 
 /*Passes sequence to sorting functions depending on length of sequence*/
 static void     push_swap(int *a, int *b, int *n)
@@ -33,7 +33,7 @@ static void     intcheck(int ac, char **av, int *n)
     int     b[n[1]];
 
     i[0] = 1;
-    i[1] = 0;
+    i[1] = 0; 
     x[1] = 0;
     while (i[0] < ac)
     {
@@ -67,8 +67,6 @@ int             main(int ac, char **av)
 
     if (ac > 1)
     {
-        if (ac < 3 && ft_strequ(av[1], ""))
-            exit(0);
         num[1] = 0;
         i = 1;
         while (i < ac)
