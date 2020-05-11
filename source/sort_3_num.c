@@ -10,23 +10,24 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h/push_swap.h"
+#include "push_swap.h"
 
-/*sorts all the permutations for 3 numbers in a*/
+/*sorts all the permutations for 3 numbers in a in ascending order*/
+/*sorts all the permutations for 3 numbers in b in descending order*/
 
 /*implements rra and rrb operations*/
 static void        do_rr(int *a, int *b, int *n, char *s)
 {
-    if (ft_strequ(s, "rra"))
-    {
-        rr(a, b, "rra", n);
-        ft_putendl("rra");
-    }
-    else if (ft_strequ(s, "rrb"))
-    {
-        rr(a, b, "rrb", n);
-        ft_putendl("rrb");
-    }
+  if (ft_strequ(s, "rra"))
+  {
+    rr(a, b, "rra", n);
+    ft_putendl("rra");
+  }
+  else if (ft_strequ(s, "rrb"))
+  {
+    rr(a, b, "rrb", n);
+    ft_putendl("rrb");
+  }
 }
 
 /*identifies the particular 3 number permutation and passes to suitable operation*/
@@ -53,8 +54,8 @@ void        asort(int *a, int *b, int *n)
 			r(a, b, "ra", n);
 			ft_putendl("ra");
 		}
-        else
-            do_rr(a, b, n, "rra");
+    else
+      do_rr(a, b, n, "rra");
     }
 }
 
@@ -79,7 +80,7 @@ void        asort_b(int *a, int *b, int *n)
 			r(a, b, "rb", n);
 			ft_putendl("rb");
 		}
-        else
-            do_rr(a, b, n, "rrb");
+    else
+      do_rr(a, b, n, "rrb");
     }
 }

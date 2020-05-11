@@ -10,10 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h/push_swap.h"
-#include <stdio.h>
+#include "push_swap.h"
 
 /*Contains all the functions(rules) used to alter the order of the sequence*/
+/*sa, sb and ss swap the first and second index of each stack(a, b, both)*/
+/*ra, rb and rr rotate the stack(a, b, both) so the first index becomes the last and second index becomes the first etc*/
+/*rra, rrb and rrr rotate the stack(a, b, both) so the last index becomes the first and second index becomes the third etc*/
+/*pa and pb pushes first index from stack to other respective stack*/
+
 /*function for "sa", "sb" and "ss"*/
 void        s(int *a, int *b, char *str, int *n)
 {
@@ -88,60 +92,60 @@ int         pa(int *a, int *b, char *str, int *n)
 
 void        rr(int *a, int *b, char *str, int *n)
 {
-    int     i;
-    int     tmp;
+  int     i;
+  int     tmp;
 
-    if ((ft_strequ(str, "rra") || ft_strequ(str, "rrr")) && n[1] - n[0] != 0)
+  if ((ft_strequ(str, "rra") || ft_strequ(str, "rrr")) && n[1] - n[0] != 0)
+  {
+    i = n[1] - n[0] - 1;
+    tmp = a[i];
+    while (i > 0)
     {
-        i = n[1] - n[0] - 1;
-        tmp = a[i];
-        while (i > 0)
-        {
-            a[i] = a[i - 1];
-            i--;
-        }
-        a[0] = tmp;
+      a[i] = a[i - 1];
+      i--;
     }
-    if ((ft_strequ(str, "rrb") || ft_strequ(str, "rrr")) && n[0] != 0)
+    a[0] = tmp;
+  }
+  if ((ft_strequ(str, "rrb") || ft_strequ(str, "rrr")) && n[0] != 0)
+  {
+    i = n[0] - 1;
+    tmp = b[i];
+    while (i > 0)
     {
-        i = n[0] - 1;
-        tmp = b[i];
-        while (i > 0)
-        {
-            b[i] = b[i - 1];
-            i--;
-        }
-        b[0] = tmp;
+      b[i] = b[i - 1];
+      i--;
     }
+    b[0] = tmp;
+  }
 }
 
 /*function for "ra", "rb" and "rr"*/
 
 void        r(int *a, int *b, char *str, int *n)
 {
-    int     i;
-    int     tmp;
+  int     i;
+  int     tmp;
 
-    if ((ft_strequ(str, "ra") || ft_strequ(str, "rr")) && n[1] - n[0] != 0)
+  if ((ft_strequ(str, "ra") || ft_strequ(str, "rr")) && n[1] - n[0] != 0)
+  {
+    i = 0;
+    tmp = a[i];
+    while (i < n[1] - n[0] - 1)
     {
-        i = 0;
-        tmp = a[i];
-        while (i < n[1] - n[0] -1)
-        {
-            a[i] = a[i + 1];
-            i++;
-        }
-        a[i] = tmp;
+      a[i] = a[i + 1];
+      i++;
     }
-    if ((ft_strequ(str, "rb") || ft_strequ(str, "rr")) && n[0] != 0)
+    a[i] = tmp;
+  }
+  if ((ft_strequ(str, "rb") || ft_strequ(str, "rr")) && n[0] != 0)
+  {
+    i = 0;
+    tmp = b[i];
+    while (i < n[0] - 1)
     {
-        i = 0;
-        tmp = b[i];
-        while (i < n[0] - 1)
-        {
-            b[i] = b[i + 1];
-            i++;
-        }
-        b[i] = tmp;
+      b[i] = b[i + 1];
+      i++;
     }
+    b[i] = tmp;
+  }
 }

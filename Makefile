@@ -31,20 +31,17 @@ CC		= gcc
 
 FLAGS	= -Wall -Wextra -Werror
 
-all:	$(NAME1) $(name2)
+all:	$(NAME1) $(NAME2)
 
 
 $(NAME1):
-		@$(CC) $(FLAGS) checker.c $(FILES)  -o $(NAME1)
+		@$(CC) $(FLAGS) checker.c $(FILES) -o $(NAME1)
 
 $(NAME2):
-		@$(CC) $(FLAGS) push_swap.c $(FILE)  -o $(NAME2)
+		@$(CC) $(FLAGS) push_swap.c $(FILES) -o $(NAME2)
 
 clean:
-		@cd source && make fclean
-
-fclean: clean
 		@rm -f $(NAME1)
 		@rm -f $(NAME2)
 
-re:		fclean all
+re:	clean

@@ -10,11 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h/push_swap.h"
+#include "push_swap.h"
 
 /*sorts sequence x for 3 < x < 7 numbers*/
-/*determines if it will take less movies to moves the smallest numbers into stack b, so that the smallest number is the 
-  last number in b*/
+/*determines how many numbers are greater than mid value and conversely how many are less*/
 static int             lolo(int *a, int n, int m, int *x)
 {
     while (x[1] - x[0] != 1 && x[1] - x[0] != 0)
@@ -68,7 +67,7 @@ static void     fstep(int *a, int *b, int *n)
     ft_putendl("pa");
 }
 
-/*identifies the mean value to determine how many positions from either end numbers are to 
+/*identifies the mean value to determine how many positions from either end numbers are, to 
 determine an actual middle value within the given sequence*/
 int             mid(int *a, int n)
 {

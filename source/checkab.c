@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h/push_swap.h"
+#include "push_swap.h"
 
 /*checks whether the sequence is in ascending order, terminates the program if
 the full sequence is in ascending order
 
 -checks for stack a*/
-int		checka(int *a, int n)
+int   checka(int *a, int n)
 {
 	int i;
 

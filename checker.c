@@ -10,19 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "source/push_swap.h/push_swap.h"
-#include <stdio.h>
+#include "source/push_swap.h"
 
 /*This program takes in a sequence of numbers and checks whether the sequence
 is in ascending order*/
-
-// void        printa(int *a, int n)
-// {
-//     printf("Stack A:");
-//     for(int i = 0; i <= n; i++){
-//         printf(" %d ", a[i]);
-//     }
-// }
 
 /*-checks if commands resulted in ascening order sequence*/
 static void     checker(int *a, int b_count, int a_count)

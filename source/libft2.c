@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h/push_swap.h"
+#include "push_swap.h"
 
 char	**ft_strsplit(char const *s, char c)
 {
@@ -79,7 +79,7 @@ int			ft_atoi(const char *str)
 		i++;
 	}
 	nbr = nbr * sign;
-	if (nbr > 2147483647 || nbr < -2147483647)
+	if (nbr > 2147483647 || nbr < -2147483648)
 			return (0);
 	return (nbr);
 }
