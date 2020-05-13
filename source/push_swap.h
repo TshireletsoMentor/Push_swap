@@ -18,7 +18,7 @@
 # include <stdlib.h>
 # include <fcntl.h>
 
-# define BUFF_SIZE 30
+# define BUFF_SIZE 3
 # define FD_MAX 1024
 
 /*libft1.c*/
